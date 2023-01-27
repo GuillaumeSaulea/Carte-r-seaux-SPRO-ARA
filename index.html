@@ -66,6 +66,22 @@
                         <td>' + (feature.properties['NOM'] !== null ? autolinker.link(feature.properties['NOM'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
+                        <th scope="row">SIGLE EF</th>\
+                        <td>' + (feature.properties['SIGLE EF'] !== null ? autolinker.link(feature.properties['SIGLE EF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ADR 1 EF'] !== null ? autolinker.link(feature.properties['ADR 1 EF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ADR 2 EF'] !== null ? autolinker.link(feature.properties['ADR 2 EF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CP EF'] !== null ? autolinker.link(feature.properties['CP EF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COMMUNE EF'] !== null ? autolinker.link(feature.properties['COMMUNE EF'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
                         <th scope="row">ADRESSE</th>\
                         <td>' + (feature.properties['ADRESSE'] !== null ? autolinker.link(feature.properties['ADRESSE'].toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -77,14 +93,20 @@
                         <th scope="row">MAIL EF</th>\
                         <td>' + (feature.properties['MAIL EF'] !== null ? autolinker.link(feature.properties['MAIL EF'].toLocaleString()) : '') + '</td>\
                     </tr>\
-                    </table>';
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['latitude'] !== null ? autolinker.link(feature.properties['latitude'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['longitude'] !== null ? autolinker.link(feature.properties['longitude'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
         function style_RseauxduSPROenAuvergneRhneAlpes_1_0() {
             return {
                 pane: 'pane_RseauxduSPROenAuvergneRhneAlpes_1',
-                radius: 8.000000000000002,
+                radius: 6.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
