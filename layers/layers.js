@@ -1,8 +1,8 @@
 var wms_layers = [];
 
 
-        var lyr_Fondcarte_0 = new ol.layer.Tile({
-            'title': 'Fond carte',
+        var lyr_OSMStandard_0 = new ol.layer.Tile({
+            'title': 'OSM Standard',
             'type': 'base',
             'opacity': 1.000000,
             
@@ -12,29 +12,29 @@ var wms_layers = [];
                 url: 'http://tile.openstreetmap.org/{z}/{x}/{y}.png'
             })
         });
-var format_RseauxduSPROenAuvergneRhneAlpes_1 = new ol.format.GeoJSON();
-var features_RseauxduSPROenAuvergneRhneAlpes_1 = format_RseauxduSPROenAuvergneRhneAlpes_1.readFeatures(json_RseauxduSPROenAuvergneRhneAlpes_1, 
+var format_SIAEdesHautsdeFrance_1 = new ol.format.GeoJSON();
+var features_SIAEdesHautsdeFrance_1 = format_SIAEdesHautsdeFrance_1.readFeatures(json_SIAEdesHautsdeFrance_1, 
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
-var jsonSource_RseauxduSPROenAuvergneRhneAlpes_1 = new ol.source.Vector({
+var jsonSource_SIAEdesHautsdeFrance_1 = new ol.source.Vector({
     attributions: ' ',
 });
-jsonSource_RseauxduSPROenAuvergneRhneAlpes_1.addFeatures(features_RseauxduSPROenAuvergneRhneAlpes_1);cluster_RseauxduSPROenAuvergneRhneAlpes_1 = new ol.source.Cluster({
+jsonSource_SIAEdesHautsdeFrance_1.addFeatures(features_SIAEdesHautsdeFrance_1);cluster_SIAEdesHautsdeFrance_1 = new ol.source.Cluster({
   distance: 10,
-  source: jsonSource_RseauxduSPROenAuvergneRhneAlpes_1
+  source: jsonSource_SIAEdesHautsdeFrance_1
 });
-var lyr_RseauxduSPROenAuvergneRhneAlpes_1 = new ol.layer.Vector({
+var lyr_SIAEdesHautsdeFrance_1 = new ol.layer.Vector({
                 declutter: true,
-                source:cluster_RseauxduSPROenAuvergneRhneAlpes_1, 
-                style: style_RseauxduSPROenAuvergneRhneAlpes_1,
+                source:cluster_SIAEdesHautsdeFrance_1, 
+                style: style_SIAEdesHautsdeFrance_1,
                 interactive: true,
-                title: '<img src="styles/legend/RseauxduSPROenAuvergneRhneAlpes_1.png" /> Réseaux du SPRO en Auvergne-Rhône-Alpes'
+                title: '<img src="styles/legend/SIAEdesHautsdeFrance_1.png" /> SIAE des Hauts-de-France'
             });
 
-lyr_Fondcarte_0.setVisible(true);lyr_RseauxduSPROenAuvergneRhneAlpes_1.setVisible(true);
-var layersList = [lyr_Fondcarte_0,lyr_RseauxduSPROenAuvergneRhneAlpes_1];
-lyr_RseauxduSPROenAuvergneRhneAlpes_1.set('fieldAliases', {'NOM': 'NOM', 'SIGLE EF': 'SIGLE EF', 'ADR 1 EF': 'ADR 1 EF', 'ADR 2 EF': 'ADR 2 EF', 'CP EF': 'CP EF', 'COMMUNE EF': 'COMMUNE EF', 'ADRESSE': 'ADRESSE', 'TEL EF': 'TEL EF', 'MAIL EF': 'MAIL EF', 'latitude': 'latitude', 'longitude': 'longitude', });
-lyr_RseauxduSPROenAuvergneRhneAlpes_1.set('fieldImages', {'NOM': 'TextEdit', 'SIGLE EF': 'TextEdit', 'ADR 1 EF': 'TextEdit', 'ADR 2 EF': 'TextEdit', 'CP EF': 'Range', 'COMMUNE EF': 'TextEdit', 'ADRESSE': 'TextEdit', 'TEL EF': 'TextEdit', 'MAIL EF': 'TextEdit', 'latitude': 'TextEdit', 'longitude': 'TextEdit', });
-lyr_RseauxduSPROenAuvergneRhneAlpes_1.set('fieldLabels', {'NOM': 'inline label', 'SIGLE EF': 'inline label', 'ADR 1 EF': 'no label', 'ADR 2 EF': 'no label', 'CP EF': 'no label', 'COMMUNE EF': 'no label', 'ADRESSE': 'inline label', 'TEL EF': 'inline label', 'MAIL EF': 'inline label', 'latitude': 'no label', 'longitude': 'no label', });
-lyr_RseauxduSPROenAuvergneRhneAlpes_1.on('precompose', function(evt) {
+lyr_OSMStandard_0.setVisible(true);lyr_SIAEdesHautsdeFrance_1.setVisible(true);
+var layersList = [lyr_OSMStandard_0,lyr_SIAEdesHautsdeFrance_1];
+lyr_SIAEdesHautsdeFrance_1.set('fieldAliases', {'Raison sociale': 'Raison sociale', 'Type de conventionnement': 'Type de conventionnement', 'SIRET': 'SIRET', 'Adresse': 'Adresse', 'latitude': 'latitude', 'longitude': 'longitude', 'Effectifs': 'Effectifs', 'Secteur d\'activité': 'Secteur d\'activité', });
+lyr_SIAEdesHautsdeFrance_1.set('fieldImages', {'Raison sociale': 'TextEdit', 'Type de conventionnement': 'TextEdit', 'SIRET': 'TextEdit', 'Adresse': 'TextEdit', 'latitude': 'TextEdit', 'longitude': 'TextEdit', 'Effectifs': 'TextEdit', 'Secteur d\'activité': 'TextEdit', });
+lyr_SIAEdesHautsdeFrance_1.set('fieldLabels', {'Raison sociale': 'inline label', 'Type de conventionnement': 'inline label', 'SIRET': 'no label', 'Adresse': 'inline label', 'latitude': 'no label', 'longitude': 'no label', 'Effectifs': 'inline label', 'Secteur d\'activité': 'inline label', });
+lyr_SIAEdesHautsdeFrance_1.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
 });

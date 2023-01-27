@@ -33,8 +33,8 @@ var map = new ol.Map({
 
 
     var searchLayer = new SearchLayer({
-      layer: lyr_RseauxduSPROenAuvergneRhneAlpes_1,
-      colName: 'NOM',
+      layer: lyr_SIAEdesHautsdeFrance_1,
+      colName: 'Raison sociale',
       zoom: 10,
       collapsed: true,
       map: map
@@ -45,7 +45,7 @@ var map = new ol.Map({
     .getElementsByTagName('button')[0].className +=
     ' fa fa-binoculars';
     
-map.getView().fit([-26799.058967, 5389359.534118, 986994.868510, 6540388.534440], map.getSize());
+map.getView().fit([-165651.585086, 6190799.242963, 589441.294943, 6717291.455000], map.getSize());
 
 var NO_POPUP = 0
 var ALL_FIELDS = 1
@@ -86,7 +86,7 @@ var featureOverlay = new ol.layer.Vector({
 });
 
 var doHighlight = false;
-var doHover = false;
+var doHover = true;
 
 var highlight;
 var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -360,6 +360,17 @@ map.on('singleclick', function(evt) {
 
 
 
+
+var geocoder = new Geocoder('nominatim', {
+  provider: 'osm',
+  lang: 'en-US',
+  placeholder: 'Search for ...',
+  limit: 5,
+  keepOpen: true
+});
+map.addControl(geocoder);
+
+document.getElementsByClassName('gcd-gl-btn')[0].className += ' fa fa-search';
 
 var attributionComplete = false;
 map.on("rendercomplete", function(evt) {
